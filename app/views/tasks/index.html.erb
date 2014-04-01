@@ -1,0 +1,15 @@
+<h1>Tasks</h1>
+
+<ul>
+  <% @tasks.each do |task| %>
+    <li><a href="/tasks/<%= task.id %>"><%= task.name %></a></li>
+
+      <form action="/tasks/<%= task.id %>" method="post">
+        <input name="_method" type="hidden" value="patch">
+        <input name="done" type="hidden" value="true">
+        <button>Mark done</button>
+      </form>
+      <p><a href="/tasks/<%= task.id %>/edit">Edit this Task</a></p>
+  <% end %>
+</ul>
+
